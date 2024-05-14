@@ -1,0 +1,23 @@
+.buttonWrapper {
+  display: flex;
+  gap: 10px;
+}
+.optionButton {
+  color: inherit;
+  background-color: rgb(107, 105, 100);
+  border: 2px rgb(66, 65, 61);
+  border-radius: 4px;
+}
+
+.optionButton:hover {
+  background-color: rgb(192, 187, 175);
+}
+.optionButton:focus,
+.optionButton:focus-visible {
+  background-color: rgb(192, 187, 175);
+  /* outline: 4px auto -webkit-focus-ring-color; */
+}
+
+.optionButton:active {
+  background-color: rgb(207, 170, 83);
+}
