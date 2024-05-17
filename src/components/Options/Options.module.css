@@ -7,17 +7,24 @@
   background-color: rgb(107, 105, 100);
   border: 2px rgb(66, 65, 61);
   border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
 .optionButton:hover {
   background-color: rgb(192, 187, 175);
 }
-.optionButton:focus,
-.optionButton:focus-visible {
-  background-color: rgb(192, 187, 175);
-  /* outline: 4px auto -webkit-focus-ring-color; */
-}
+
+
 
 .optionButton:active {
-  background-color: rgb(207, 170, 83);
+  background-color: rgb(204, 132, 168);
+  transition: background-color 0.3s;
+}
+.optionButton:focus {
+     background-color: rgb(192, 187, 175);
+}
+
+.optionButton:focus:not(:hover) {
+  background-color: rgb(107, 105, 100); 
+
 }
