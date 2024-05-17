@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import css from "./Options.module.css";
 
 const Options = ({ updateFeedback, totalFeedback, resetFeedback }) => {
@@ -5,21 +7,21 @@ const Options = ({ updateFeedback, totalFeedback, resetFeedback }) => {
     <div className={css.buttonWrapper}>
       <button
         className={css.optionButton}
-        aria-label="button"
+        aria-label='button'
         onClick={() => updateFeedback("good")}
       >
         Good
       </button>
       <button
         className={css.optionButton}
-         aria-label="button"
+        aria-label='button'
         onClick={() => updateFeedback("neutral")}
       >
         Neutral
       </button>
       <button
         className={css.optionButton}
-         aria-label="button"
+        aria-label='button'
         onClick={() => updateFeedback("bad")}
       >
         Bad
@@ -27,10 +29,8 @@ const Options = ({ updateFeedback, totalFeedback, resetFeedback }) => {
       {totalFeedback !== 0 && (
         <button
           className={css.optionButton}
-           aria-label="button"
-          onClick={
-            resetFeedback}
-              
+          aria-label='button'
+          onClick={resetFeedback}
         >
           Reset
         </button>
@@ -39,4 +39,9 @@ const Options = ({ updateFeedback, totalFeedback, resetFeedback }) => {
   );
 };
 
+Options.propTypes = {
+  updateFeedback: PropTypes.func.isRequired,
+  totalFeedback: PropTypes.number.isRequired,
+  resetFeedback: PropTypes.func.isRequired,
+};
 export default Options;

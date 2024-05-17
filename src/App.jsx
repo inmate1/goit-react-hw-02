@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Description from "./components/Description/Description";
 import Options from "./components/Options/Options";
@@ -6,11 +6,20 @@ import Feedback from "./components/Feedback/Feedback";
 import Notification from "./components/Notification/Notification";
 
 function App() {
-  const [feedback, setFeedback] = useState({
+  // Инициализация состояния feedback из локального хранилища при загрузке страницы
+  const initialState = JSON.parse(localStorage.getItem("feedback")) || {
     good: 0,
     neutral: 0,
     bad: 0,
-  });
+  };
+
+  const [feedback, setFeedback] = useState(initialState);
+
+  // Сохранение состояния feedback в локальное хранилище при его изменении
+  useEffect(() => {
+    localStorage.setItem("feedback", JSON.stringify(feedback));
+  }, [feedback]);
+
   const resetFeedback = () => {
     setFeedback({
       good: 0,
@@ -38,9 +47,7 @@ function App() {
       />
       {totalFeedback !== 0 ? (
         <Feedback
-          feedbackGood={feedback.good}
-          feedbackNeutral={feedback.neutral}
-          feedbackBad={feedback.bad}
+          feedbacks={feedback}
           totalFeedback={totalFeedback}
           positiveFeedback={positiveFeedback}
         />
